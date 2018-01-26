@@ -102,11 +102,11 @@ function draw(){
       } else {
         fill(50, 0, 150);
       }
-      rect(700, 700, 750, 750);
+      rect(600, 600, 750, 750);
 }
 
 function doubleClicked() {
     ellipse(mouseX, mouseY, 5, 5);
     // prevent default
     return false;
-  }
+  }// doesn't work
