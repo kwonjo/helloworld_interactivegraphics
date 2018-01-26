@@ -4,6 +4,7 @@ function setup(){
 
 function draw(){
     background(0, 191, 255);
+
     //shapes
     fill(255, 200, 0);
     rect(400, 400, 200, 200);
@@ -25,6 +26,7 @@ function draw(){
     bezier(800, 300, 100, 10, 90, 90, 15, 700);
     bezier(800, 500, 100, 10, 90, 90, 15, 700);
     //text
+    strokeWeight(1);
     textSize(32);
     var s = 'This is a yellow box.';
     fill(100);
@@ -43,6 +45,7 @@ function draw(){
     image(img, 50, 50);
     
     //complex continuous purple shapes
+    strokeWeight(3);
     beginShape();
     fill(150, 0, 150);
     vertex(400, 400);
@@ -94,7 +97,7 @@ function draw(){
     textSize(20);
     var s = 'Play with the mouse';
     fill(255);
-    text(s, 600, 600, 200, 200);
+    text(s, 605, 500, 200, 200);
 
     //key pressed purple square changes brighter purple
     if (keyIsPressed === true) {
