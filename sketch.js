@@ -95,4 +95,18 @@ function draw(){
     var s = 'Play with the mouse';
     fill(255);
     text(s, 600, 600, 200, 200);
+
+    //key pressed purple square changes brighter purple
+    if (keyIsPressed === true) {
+        fill(150, 0, 150);
+      } else {
+        fill(50, 0, 150);
+      }
+      rect(700, 700, 750, 750);
 }
+
+function doubleClicked() {
+    ellipse(mouseX, mouseY, 5, 5);
+    // prevent default
+    return false;
+  }
