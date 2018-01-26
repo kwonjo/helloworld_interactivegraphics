@@ -1,6 +1,14 @@
 function setup(){
     createCanvas(800, 800);
 }
+var img2;
+var xoff = 0.0;
+var mySound;
+function preload() {
+  img2 = loadImage('images/notes.gif');
+  soundFormats('mp3', 'ogg');
+  mySound = loadSound('images/heroes.mp3');
+}
 
 function draw(){
     background(0, 191, 255);
@@ -8,7 +16,9 @@ function draw(){
     //shapes
     fill(255, 200, 0);
     rect(400, 400, 200, 200);
-    fill(0, 100, 150);
+    fill(255, 0, 50);
+    rect(400, 600, 200, 200);
+    fill(50, 0, 150);
     triangle(15, 701, 600, 20, 200, 700);
     fill(255, 150, 0);
     ellipse(400, 100, 20, 20);
@@ -19,12 +29,14 @@ function draw(){
     noFill();
     stroke(255, 102, 0);
     stroke(0, 0, 0);
+
     //curves
     bezier(800, 20, 10, 10, 90, 90, 15, 700);
     bezier(800, 100, 10, 10, 90, 90, 15, 700);    
     bezier(800, 200, 10, 10, 90, 90, 15, 700);
     bezier(800, 300, 100, 10, 90, 90, 15, 700);
     bezier(800, 500, 100, 10, 90, 90, 15, 700);
+   
     //text
     strokeWeight(1);
     textSize(32);
@@ -92,7 +104,12 @@ function draw(){
     curveVertex(600, 600);
     curveVertex(230, 600);
     curveVertex(250, 600);
+    curveVertex(100, 260);
+    curveVertex(300, 260);
+
     endShape();
+    
+
     //text
     textSize(20);
     var s = 'Play with the mouse';
@@ -106,10 +123,20 @@ function draw(){
         fill(50, 0, 150);
       }
       rect(600, 600, 750, 750);
-}
 
-function doubleClicked() {
-    ellipse(mouseX, mouseY, 5, 5);
-    // prevent default
-    return false;
-  }// doesn't work
+      if(mouseIsPressed) {
+        fill(100, 0, 150);
+        ellipse(mouseX, mouseY, 50, 100);
+      }
+    //images of stars
+    image(img2, 10, 700, 200, 99);
+
+    //noise
+    xoff = xoff + 0.05;
+    var n = noise(xoff) * width;
+    line(n, 0, n, height);
+    
+    //mp3 sound
+    mySound.setVolume(0.15);
+    mySound.play();
+}
