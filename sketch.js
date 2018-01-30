@@ -13,13 +13,16 @@ function preload() {
 function draw(){
     background(0, 191, 255);
 
-    //shapes
+    //rectangles
     fill(255, 200, 0);
     rect(400, 400, 200, 200);
+    //red triangle
     fill(255, 0, 50);
-    rect(400, 600, 200, 200);
+    triangle(400, 600, 400, 800, 600, 750);
+    //purple triangle
     fill(50, 0, 150);
     triangle(15, 701, 600, 20, 200, 700);
+    //three ellipses
     fill(255, 150, 0);
     ellipse(400, 100, 20, 20);
     fill(255, 100, 0);
@@ -84,7 +87,7 @@ function draw(){
     endContour();
     endShape(CLOSE);
 
-    //Stroke->question
+    //Stroke
     noFill();
     strokeWeight(3);
     beginShape();
@@ -106,21 +109,25 @@ function draw(){
     curveVertex(250, 600);
     curveVertex(100, 260);
     curveVertex(300, 260);
-
     endShape();
     
-
     //text
     textSize(20);
-    var s = 'Play with the mouse';
+    var s = 'Play with the line with the mouse';
     fill(255);
     text(s, 605, 500, 200, 200);
+
+    //text
+    textSize(15);
+    var u = 'Click on any key';
+    fill(150);
+    text(u, 500, 600, 100, 100);
 
     //key pressed purple square changes brighter purple
     if (keyIsPressed === true) {
         fill(150, 0, 150);
       } else {
-        fill(50, 0, 150);
+        fill(100, 0, 150);
       }
       rect(600, 600, 750, 750);
 
@@ -128,7 +135,8 @@ function draw(){
         fill(100, 0, 150);
         ellipse(mouseX, mouseY, 50, 100);
       }
-    //images of stars
+
+    //image of music notes
     image(img2, 10, 700, 200, 99);
 
     //noise
@@ -137,6 +145,6 @@ function draw(){
     line(n, 0, n, height);
     
     //mp3 sound
-    mySound.setVolume(0.15);
+    mySound.setVolume(0.12);
     mySound.play();
 }
